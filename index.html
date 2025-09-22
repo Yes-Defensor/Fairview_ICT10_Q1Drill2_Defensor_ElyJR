@@ -46,17 +46,24 @@
   </div>
 
   <!-- Python code using PyScript -->
-  <py-script>
+<py-script>
+    # Import the document object from JavaScript to interact with HTML elements
     from js import document
 
-    # Function triggered by button click; accepts optional event argument
+    # Define a function that will be triggered when a button is clicked
+    # The 'event' parameter is optional and allows the function to handle event data if needed
     def generate_message(event=None):
-        # Get values from input fields
+        # Retrieve the value entered in the input field with ID "name"
         name = document.getElementById("name").value
+
+        # Retrieve the value entered in the input field with ID "age"
         age = document.getElementById("age").value
+
+        # Retrieve the value entered in the input field with ID "school"
         school = document.getElementById("school").value
 
-        # Create formatted message using multiline string
+        # Create a formatted message using a multiline string
+        # Includes emojis and tab characters for styling
         message = f"Student Profile\n" \
                   f"👤 Name: {name}\n" \
                   f"Age: {age}\n" \
@@ -66,11 +73,16 @@
                   f"\tThis information was gathered through input fields\n" \
                   f"\tand displayed using a multiline string in Python via PyScript."
 
-        # Append message to output area without clearing previous content
+        # Find the HTML element with ID "output"
         output = document.getElementById("output")
+
+        # Append the generated message to the existing content of the output area
+        # Adds two newlines for spacing between messages
         output.innerText += message + "\n\n"
-  </py-script>
+</py-script>
+
 </body>
 </html>
+
 
 
